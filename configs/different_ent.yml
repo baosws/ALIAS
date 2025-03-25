@@ -1,0 +1,29 @@
+data:
+  generator: sim_pe
+  params:
+    nodes: 30
+    samples: 1000
+    graph_type: ER
+    edges_per_node: 8
+    linear: True
+    noise_scale: 1
+    sem_type: gauss
+    weight_range: [[.5, 2]]
+    random_state: !range 5
+
+analyzer: analyze_ablation
+
+methods:
+  ALIAS: !overwrite 
+    FROM: !yml ALIAS_default.yml
+    standardize_data: false
+    dag_scorer_kwargs:
+      regressor: LinearRegression
+      variant: EV
+    rl_method: 
+      - PPO
+      - A2C
+    rl_params:
+      learning_rate: [1.e-4, 5.e-4]
+      ent_coef: [0, 1, 1.e-1, 1.e-2, 1.e-3]
+    verbose: true

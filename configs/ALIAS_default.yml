@@ -1,0 +1,13 @@
+steps_per_env: 20_000
+n_envs: 64
+rl_method: PPO
+rl_params:
+  normalize_advantage: true
+  n_epochs: 1
+  device: cpu
+  verbose: 0
+dag_scorer_cls: BIC
+n_score_workers: 0
+score_cache_capacity: null
+verbose: false
+random_state: 0

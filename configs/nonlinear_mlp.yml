@@ -1,0 +1,26 @@
+data:
+  generator: sim_pe
+  params:
+    nodes: 10
+    edges_per_node: 4
+    samples: 1000
+    graph_type: ER
+    linear: false
+    noise_scale: 1
+    weight_range: [[.5, 2]]
+    sem_type: mlp
+    random_state: !range 5
+
+analyzer: analyze_gp
+
+methods:
+  ALIAS: !overwrite 
+    FROM: !yml ALIAS_default.yml
+    standardize_data: false # no normalization since variables' stds are close to 1
+    dag_scorer_kwargs:
+      variant: EV
+      regressor: GP
+      regression_kwargs:
+        alpha: 1
+        random_state: 0
+    verbose: true

@@ -1,0 +1,20 @@
+data:
+  generator: real_data
+  params:
+    name: sachs
+    random_state: 0
+
+analyzer: analyze_sachs
+
+methods:
+  ALIAS: !overwrite 
+    FROM: !yml ALIAS_default.yml
+    standardize_data: true
+    dag_scorer_kwargs:
+      variant: NV
+      regressor: GP
+      med_w: true
+      regression_kwargs:
+        alpha: 1.e-8 # really small value just to ensure positiveness of covariance matrix, because in this case the data is standardized and we don't know the noise variance
+        random_state: 0
+    verbose: true

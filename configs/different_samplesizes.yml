@@ -1,0 +1,23 @@
+data:
+  generator: sim_pe
+  params:
+    nodes: [20, 30, 50]
+    samples: [100, 500, 1000, 2000, 5000]
+    graph_type: [ER, SF]
+    edges_per_node: 8
+    linear: True
+    noise_scale: 1
+    sem_type: gauss
+    weight_range: [[.5, 2]]
+    random_state: !range 5
+
+analyzer: analyze_samplesizes
+
+methods:
+  ALIAS: !overwrite 
+    FROM: !yml ALIAS_default.yml
+    standardize_data: false
+    dag_scorer_kwargs:
+      regressor: LinearRegression
+      variant: EV
+    verbose: true

@@ -1,0 +1,27 @@
+data:
+  generator: sim_pe
+  params:
+    nodes: 30
+    samples: 1000
+    graph_type: ER
+    edges_per_node: 2
+    linear: True
+    noise_scale: 1
+    sem_type:
+      - gumbel
+      - exp
+      - uniform
+      # - laplace # laplace noise is not readily available from gCastle, but can be implemented fairly easily
+    weight_range: [[2, 5]]
+    random_state: !range 5
+
+analyzer: analyze_different_noises
+
+methods:
+  ALIAS: !overwrite 
+    FROM: !yml ALIAS_default.yml
+    standardize_data: false
+    dag_scorer_kwargs:
+      regressor: LinearRegression
+      variant: EV
+    verbose: true

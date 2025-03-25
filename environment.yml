@@ -1,0 +1,26 @@
+channels: 
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.9
+  - ipykernel
+  - pip
+  - numpy
+  - pandas
+  - scikit-learn
+  - rich
+  - rpy2
+  - r-matrix
+  - bioconductor-rbgl
+  - r-pcalg
+  - r-igraph
+  - r-ggm
+  - r-vcd
+  - pip:
+    - gcastle==1.0.3
+    - networkx==2.6
+    - gymnasium==0.29.1
+    - stable_baselines3==2.3.2
+    - lru-dict
+    - pyyaml
+    - causal-learn

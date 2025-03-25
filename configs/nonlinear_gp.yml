@@ -1,0 +1,19 @@
+data:
+  generator: nonlinear_gp
+  params:
+    name: data_p10_e40_n1000_GP
+    id: !range 1:+5
+
+analyzer: analyze_gp
+
+methods:
+  ALIAS: !overwrite 
+    FROM: !yml ALIAS_default.yml
+    standardize_data: false # no normalization since variables' stds are close to 1
+    dag_scorer_kwargs:
+      variant: NV
+      regressor: GP
+      regression_kwargs:
+        alpha: 1 # following CORL: https://github.com/huawei-noah/trustworthyAI/blob/f2eaa6c0e1c176b31bb48049df38d95f65bf210d/gcastle/castle/algorithms/gradient/corl/torch/corl.py#L87. This also in accordance with the fact that the noises have variances around 1.
+        random_state: 0
+    verbose: true
