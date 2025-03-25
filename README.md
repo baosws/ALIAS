@@ -51,7 +51,7 @@ python setup_CAM.py
 
 ## Running demo
 
-Run `demo.ipynb`
+Run [demo.ipynb](demo.ipynb)
 
 ## Running experiments
 
