@@ -1,7 +1,6 @@
 # Reinforcement Learning for Causal Discovery without Acyclicity Constraints
 
-This is an official implementation for our work [Reinforcement Learning for Causal Discovery without Acyclicity Constraints
-](https://openreview.net/forum?id=sNzBi8rZTy), published in Transactions of Machine Learning Research (TMLR) 2025.
+This is an official implementation for our work [Reinforcement Learning for Causal Discovery without Acyclicity Constraints](https://openreview.net/forum?id=sNzBi8rZTy), published in Transactions of Machine Learning Research (TMLR) 2025.
 
 ## Abstract
 Recently, reinforcement learning (RL) has proved a promising alternative for conventional local heuristics in score-based approaches to learning directed acyclic causal graphs (DAGs) from observational data. However, the intricate acyclicity constraint still challenges the efficient exploration of the vast space of DAGs in existing methods. In this study, we introduce **ALIAS**  (reinforced dAg Learning wIthout Acyclicity conStraints), a novel approach to causal discovery powered by the RL machinery. Our method features an efficient policy for generating DAGs in just a single step with an optimal quadratic complexity, fueled by a novel parametrization of DAGs that directly translates a continuous space to the space of all DAGs, bypassing the need for explicitly enforcing acyclicity constraints. This approach enables us to navigate the search space more effectively by utilizing policy gradient methods and established scoring functions. In addition, we provide compelling empirical evidence for the strong performance of ALIAS  in comparison with state-of-the-arts in causal discovery over increasingly difficult experiment conditions on both synthetic and real datasets.
@@ -94,10 +93,10 @@ Please consider citing us as follows if you find our work beneficial:
 
 ```
 @article{
-duong2025reinforcement,
-title={Reinforcement Learning for Causal Discovery without Acyclicity Constraints},
-author={Bao Duong and Hung Le and Biwei Huang and Thin Nguyen},
-journal={Transactions on Machine Learning Research},
-year={2025},
+    duong2025reinforcement,
+    title={Reinforcement Learning for Causal Discovery without Acyclicity Constraints},
+    author={Bao Duong and Hung Le and Biwei Huang and Thin Nguyen},
+    journal={Transactions on Machine Learning Research},
+    year={2025},
 }
 ```
