@@ -1,5 +1,25 @@
 # Reinforcement Learning for Causal Discovery without Acyclicity Constraints
 
+This is an official implementation for our work [Reinforcement Learning for Causal Discovery without Acyclicity Constraints
+](https://openreview.net/forum?id=sNzBi8rZTy), published in Transactions of Machine Learning Research (TMLR) 2025.
+
+## Abstract
+Recently, reinforcement learning (RL) has proved a promising alternative for conventional local heuristics in score-based approaches to learning directed acyclic causal graphs (DAGs) from observational data. However, the intricate acyclicity constraint still challenges the efficient exploration of the vast space of DAGs in existing methods. In this study, we introduce **ALIAS**  (reinforced dAg Learning wIthout Acyclicity conStraints), a novel approach to causal discovery powered by the RL machinery. Our method features an efficient policy for generating DAGs in just a single step with an optimal quadratic complexity, fueled by a novel parametrization of DAGs that directly translates a continuous space to the space of all DAGs, bypassing the need for explicitly enforcing acyclicity constraints. This approach enables us to navigate the search space more effectively by utilizing policy gradient methods and established scoring functions. In addition, we provide compelling empirical evidence for the strong performance of ALIAS  in comparison with state-of-the-arts in causal discovery over increasingly difficult experiment conditions on both synthetic and real datasets.
+
+## Key results
+
+The proposed **ALIAS** method can optimize a given DAG scoring function over the exact DAGs space. This is done by navigating in an unconstrained space, in which each point is directly mapped to a DAG with a one-step operator that can be evaluated optimally, which conveniently absorbs the acyclicity constraint.
+
+![](assets/1744590213941.png)
+
+By combining a one-step DAG generation policy with policy gradient, we obtain a very accurate score-based causal discovery algorithm. The one-step policy helps ensure the exactness of the search space, while policy gradient enables exploration & exploitation for better searching. This is shown by the continuously increasing number of unique DAGs explored during the search process, which is strongly correlated with the reward (DAG score).
+
+![](assets/1744590992104.png)
+
+Even in situations known to be challenging to previous approaches, such as dense or large graphs, our method can still achieve near-perfect performance.
+
+![](assets/1744590841168.png)
+
 ## Project structure
 ```bash
 ├── data                                    # Put nonlinear GP data and Sachs data here
@@ -67,3 +87,17 @@ python run_experiment.py linear
 ```
 
 For nonlinear experiments with GP, download this [dataset](https://github.com/kurowasan/GraN-DAG/blob/master/data/data_p10_e40_n1000_GP.zip) from GraN-DAG's repo then extract it to `./data` before running the experiment.
+
+## Citation
+
+Please consider citing us as follows if you find our work beneficial:
+
+```
+@article{
+duong2025reinforcement,
+title={Reinforcement Learning for Causal Discovery without Acyclicity Constraints},
+author={Bao Duong and Hung Le and Biwei Huang and Thin Nguyen},
+journal={Transactions on Machine Learning Research},
+year={2025},
+}
+```
